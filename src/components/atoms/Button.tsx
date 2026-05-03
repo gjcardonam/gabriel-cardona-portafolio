@@ -8,11 +8,11 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const VARIANT_STYLES: Record<Variant, string> = {
   primary:
-    "bg-ink text-paper hover:bg-accent hover:text-paper border border-ink hover:border-accent",
+    "bg-teal-700 text-white hover:bg-teal-800 active:bg-teal-900 focus:ring-teal-600/40",
   secondary:
-    "bg-paper text-ink border border-ink hover:bg-ink hover:text-paper",
+    "bg-white text-teal-700 border border-teal-700 hover:bg-teal-50 focus:ring-teal-600/40",
   ghost:
-    "bg-transparent text-ink-soft hover:text-accent border border-transparent hover:border-rule",
+    "bg-transparent text-slate-700 hover:bg-slate-100 focus:ring-slate-300",
 };
 
 export function Button({
@@ -24,7 +24,7 @@ export function Button({
   return (
     <button
       {...rest}
-      className={`group inline-flex items-center justify-center gap-2 px-5 py-2.5 font-mono text-[11px] font-medium uppercase tracking-[0.18em] transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-paper focus:ring-accent disabled:cursor-not-allowed disabled:opacity-50 ${VARIANT_STYLES[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-4 disabled:cursor-not-allowed disabled:opacity-60 ${VARIANT_STYLES[variant]} ${className}`}
     >
       {children}
     </button>

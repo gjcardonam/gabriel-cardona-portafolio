@@ -21,18 +21,14 @@ export function CenterContent() {
 
   return (
     <>
-      <main className="min-w-0 bg-paper">
-        <div className="px-6 sm:px-12 lg:px-16">
-          <ProfileSection onOpenDialog={() => setProfileOpen(true)} />
-          <KnowledgeSection />
-          <EducationSection />
-          <PortfolioSection
-            onSelectProject={(id) => setSelectedProjectId(id)}
-          />
-        </div>
-        <div className="px-6 sm:px-12 lg:px-16">
-          <Footer />
-        </div>
+      <main className="flex min-w-0 flex-col gap-12 pb-6">
+        <ProfileSection onOpenDialog={() => setProfileOpen(true)} />
+        <KnowledgeSection />
+        <EducationSection />
+        <PortfolioSection
+          onSelectProject={(id) => setSelectedProjectId(id)}
+        />
+        <Footer />
       </main>
       <ProfileDialog
         open={profileOpen}

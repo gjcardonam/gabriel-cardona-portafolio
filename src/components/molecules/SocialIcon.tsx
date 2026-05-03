@@ -11,10 +11,9 @@ export function SocialIcon({ social }: Props) {
       rel="noopener noreferrer"
       aria-label={social.name}
       title={social.name}
-      className="group relative inline-flex h-11 w-11 items-center justify-center text-ink transition-colors hover:text-accent"
+      className="group inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-slate-700 shadow-sm ring-1 ring-slate-200 transition-all hover:-translate-y-0.5 hover:bg-teal-700 hover:text-white hover:ring-teal-700"
     >
       <Icon name={social.icon as never} size={20} />
-      <span className="pointer-events-none absolute inset-0 ring-1 ring-ink/0 transition-all group-hover:ring-ink" />
     </a>
   );
 }

@@ -45,36 +45,29 @@ export function Dialog({
       role="dialog"
       aria-modal="true"
       aria-label={title}
-      className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6"
+      className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-6"
     >
       <button
         type="button"
         aria-label="Cerrar"
         onClick={onClose}
-        className="absolute inset-0 cursor-default bg-ink/70 backdrop-blur-[2px] anim-fade"
+        className="absolute inset-0 cursor-default bg-slate-900/60 backdrop-blur-sm"
       />
       <div
-        className={`relative w-full ${MAX_WIDTH[maxWidth]} max-h-[90vh] overflow-hidden bg-paper ring-1 ring-ink shadow-[12px_12px_0_0_rgba(23,21,19,0.08)] anim-rise`}
+        className={`relative w-full ${MAX_WIDTH[maxWidth]} max-h-[90vh] overflow-hidden rounded-t-3xl bg-white shadow-2xl ring-1 ring-slate-200 sm:rounded-3xl`}
       >
-        <header className="flex items-center justify-between gap-4 border-b border-ink/15 px-6 py-4">
-          <div className="min-w-0">
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
-              Detalle
-            </p>
-            <h2 className="font-display text-2xl font-semibold leading-tight text-ink">
-              {title}
-            </h2>
-          </div>
+        <header className="flex items-center justify-between gap-4 border-b border-slate-100 px-6 py-4">
+          <h2 className="text-lg font-bold text-slate-900">{title}</h2>
           <button
             type="button"
             onClick={onClose}
             aria-label="Cerrar diálogo"
-            className="inline-flex h-9 w-9 flex-none items-center justify-center text-ink-mute transition-colors hover:bg-ink hover:text-paper"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900"
           >
-            <Icon name="close" size={18} />
+            <Icon name="close" size={20} />
           </button>
         </header>
-        <div className="max-h-[calc(90vh-5.5rem)] overflow-y-auto px-6 py-6">
+        <div className="max-h-[calc(90vh-4rem)] overflow-y-auto px-6 py-6">
           {children}
         </div>
       </div>

@@ -5,17 +5,15 @@ type Props = { item: ContactItemData };
 
 export function ContactItem({ item }: Props) {
   const content = (
-    <div className="grid grid-cols-[14px_1fr] items-start gap-3">
-      <Icon
-        name={item.icon as never}
-        size={14}
-        className="mt-1 text-ink-mute"
-      />
+    <div className="flex items-start gap-3">
+      <span className="mt-0.5 inline-flex h-8 w-8 flex-none items-center justify-center rounded-full bg-teal-50 text-teal-700">
+        <Icon name={item.icon as never} size={16} />
+      </span>
       <div className="min-w-0">
-        <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute">
+        <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-500">
           {item.label}
         </div>
-        <div className="truncate text-sm text-ink">{item.value}</div>
+        <div className="truncate text-sm text-slate-800">{item.value}</div>
       </div>
     </div>
   );
@@ -23,7 +21,7 @@ export function ContactItem({ item }: Props) {
     return (
       <a
         href={item.href}
-        className="block transition-colors hover:text-accent [&_.text-ink]:hover:text-accent"
+        className="block rounded-lg p-1 -m-1 transition-colors hover:bg-slate-100"
       >
         {content}
       </a>
