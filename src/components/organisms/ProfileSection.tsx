@@ -14,7 +14,7 @@ export function ProfileSection({ onOpenDialog }: Props) {
       className="relative scroll-mt-6 overflow-hidden border-b border-ink/15 pb-20 pt-12"
     >
       {/* Top meta strip */}
-      <div className="grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4 border-t border-ink pt-3 font-mono text-[10px] uppercase tracking-[0.3em] text-ink-mute">
+      <div className="anim-fade stagger-1 grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4 border-t border-ink pt-3 font-mono text-[10px] uppercase tracking-[0.3em] text-ink-mute">
         <span className="text-accent">§01</span>
         <span>Perfil · Hoja de vida</span>
         <span className="hidden sm:inline">Medellín / CO</span>
@@ -22,18 +22,18 @@ export function ProfileSection({ onOpenDialog }: Props) {
 
       <div className="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-[1fr_auto] md:items-end">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-mute">
+          <p className="anim-rise stagger-2 font-mono text-xs uppercase tracking-[0.2em] text-ink-mute">
             Senior Software Engineer · Backend · Data · DevOps
           </p>
-          <h1 className="mt-4 font-display text-[clamp(3rem,8vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-ink">
+          <h1 className="anim-rise stagger-3 mt-4 font-display text-[clamp(3rem,8vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-ink">
             Gabriel
             <br />
             <span className="text-accent">Cardona.</span>
           </h1>
-          <p className="mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">
+          <p className="anim-rise stagger-5 mt-8 max-w-xl text-lg leading-relaxed text-ink-soft">
             {profile.shortDescription}
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          <div className="anim-rise stagger-6 mt-10 flex flex-wrap items-center gap-4">
             <Button variant="primary" onClick={onOpenDialog}>
               Conoce más sobre mí
               <Icon name="arrowRight" size={14} />
@@ -47,7 +47,7 @@ export function ProfileSection({ onOpenDialog }: Props) {
           </div>
         </div>
 
-        <figure className="relative w-fit">
+        <figure className="anim-rise stagger-4 relative w-fit">
           {/* Plate / mat behind photo */}
           <div className="absolute -inset-3 -z-10 bg-paper-deep" />
           <div className="relative h-[260px] w-[200px] overflow-hidden bg-white ring-1 ring-ink sm:h-[320px] sm:w-[240px]">

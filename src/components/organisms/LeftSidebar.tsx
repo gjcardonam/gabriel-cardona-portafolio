@@ -16,7 +16,7 @@ export function LeftSidebar() {
         className="absolute right-0 top-9 bottom-9 w-px bg-ink/20"
       />
 
-      <header className="flex flex-col items-start text-left">
+      <header className="anim-rise stagger-1 flex flex-col items-start text-left">
         <div className="flex w-full items-center justify-between">
           <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-mute">
             Portfolio · 2026
@@ -39,7 +39,7 @@ export function LeftSidebar() {
         </p>
       </header>
 
-      <SidebarBlock label="A" title="Contacto">
+      <SidebarBlock label="A" title="Contacto" stagger={2}>
         <div className="space-y-3">
           {profile.contact.map((c) => (
             <ContactItem key={c.label} item={c} />
@@ -47,7 +47,7 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock label="B" title="Idiomas">
+      <SidebarBlock label="B" title="Idiomas" stagger={3}>
         <div className="space-y-3">
           {languages.map((l) => (
             <SkillBar key={l.name} skill={l} />
@@ -55,7 +55,7 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock label="C" title="Lenguajes">
+      <SidebarBlock label="C" title="Lenguajes" stagger={4}>
         <div className="space-y-3">
           {programmingLanguages.map((l) => (
             <SkillBar key={l.name} skill={l} />
@@ -63,7 +63,7 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock label="D" title="Habilidades extra">
+      <SidebarBlock label="D" title="Habilidades extra" stagger={5}>
         <div className="space-y-4">
           {extraSkills.map((cat) => (
             <div key={cat.category}>
@@ -86,14 +86,18 @@ export function LeftSidebar() {
 function SidebarBlock({
   label,
   title,
+  stagger,
   children,
 }: {
   label: string;
   title: string;
+  stagger: number;
   children: React.ReactNode;
 }) {
   return (
-    <section className="mt-9 border-t border-ink/15 pt-6">
+    <section
+      className={`anim-rise stagger-${stagger} mt-9 border-t border-ink/15 pt-6`}
+    >
       <header className="mb-5 flex items-baseline justify-between">
         <h2 className="font-display text-base font-semibold text-ink">
           {title}

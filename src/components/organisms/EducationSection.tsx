@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/atoms/Reveal";
 import { SectionTitle } from "@/components/atoms/SectionTitle";
 import { EducationCard } from "@/components/molecules/EducationCard";
 import { education } from "@/data/education";
@@ -16,7 +17,9 @@ export function EducationSection() {
       />
       <div className="border-b border-ink/15">
         {education.map((e, idx) => (
-          <EducationCard key={e.id} item={e} index={idx} />
+          <Reveal key={e.id} delay={idx * 80}>
+            <EducationCard item={e} index={idx} />
+          </Reveal>
         ))}
       </div>
     </section>
