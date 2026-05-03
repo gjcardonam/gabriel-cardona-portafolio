@@ -1,17 +1,19 @@
 type Props = {
   children: React.ReactNode;
-  variant?: "default" | "outline";
+  variant?: "default" | "outline" | "accent";
   className?: string;
 };
 
+const STYLES: Record<NonNullable<Props["variant"]>, string> = {
+  default: "bg-paper-deep text-ink-soft",
+  outline: "border border-rule text-ink-soft bg-transparent",
+  accent: "bg-accent/10 text-accent border border-accent/30",
+};
+
 export function Badge({ children, variant = "default", className = "" }: Props) {
-  const styles =
-    variant === "outline"
-      ? "border border-slate-300 text-slate-700 bg-transparent"
-      : "bg-teal-600/10 text-teal-700 border border-teal-600/20";
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${styles} ${className}`}
+      className={`inline-flex items-center font-mono text-[10px] uppercase tracking-[0.14em] px-2 py-1 ${STYLES[variant]} ${className}`}
     >
       {children}
     </span>

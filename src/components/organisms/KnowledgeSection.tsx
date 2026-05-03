@@ -6,6 +6,7 @@ export function KnowledgeSection() {
   return (
     <section id="conocimientos" className="scroll-mt-6">
       <SectionTitle
+        number="02"
         eyebrow="Conocimientos"
         title="Áreas en las que trabajo"
         description="Áreas técnicas en las que tengo experiencia construyendo y operando sistemas en producción."

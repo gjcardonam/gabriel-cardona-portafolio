@@ -6,6 +6,7 @@ export function EducationSection() {
   return (
     <section id="educacion" className="scroll-mt-6">
       <SectionTitle
+        number="03"
         eyebrow="Educación"
         title="Formación académica"
         description="Pregrados y certificaciones técnicas relevantes para mi trayectoria profesional."
