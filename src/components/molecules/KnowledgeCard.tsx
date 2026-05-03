@@ -16,10 +16,10 @@ export function KnowledgeCard({ item, index }: Props) {
           /{label}
         </span>
       </div>
-      <h3 className="mt-6 text-xl font-bold tracking-tight text-ink">
+      <h3 className="mt-6 text-balance text-xl font-bold tracking-tight text-ink">
         {item.title}
       </h3>
-      <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+      <p className="mt-3 text-pretty text-sm leading-relaxed text-ink-soft">
         {item.description}
       </p>
     </Card>

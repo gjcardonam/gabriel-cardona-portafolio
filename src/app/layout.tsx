@@ -24,6 +24,7 @@ export const metadata: Metadata = {
   title: "Gabriel Cardona — Portafolio",
   description:
     "Portafolio de Gabriel Cardona, Senior Software Engineer enfocado en Backend, Data Engineering y DevOps.",
+  themeColor: "#fafafa",
 };
 
 export default function RootLayout({
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
+      style={{ colorScheme: "light" }}
       className={`${bebas.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-canvas text-ink font-body">

@@ -21,7 +21,7 @@ export function Button({
   return (
     <button
       {...rest}
-      className={`press inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold tracking-tight transition-[background-color,color,box-shadow] duration-150 ease-out focus:outline-none focus-visible:ring-4 focus-visible:ring-accent/30 disabled:cursor-not-allowed disabled:opacity-50 ${VARIANT_STYLES[variant]} ${className}`}
+      className={`press inline-flex touch-manipulation items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold tracking-tight transition-[background-color,color,box-shadow] duration-150 ease-out focus:outline-none focus-visible:ring-4 focus-visible:ring-accent/30 disabled:cursor-not-allowed disabled:opacity-50 ${VARIANT_STYLES[variant]} ${className}`}
     >
       {children}
     </button>
