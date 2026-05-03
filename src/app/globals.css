@@ -15,10 +15,23 @@
 
   --color-rule: #e4e4e7;
 
-  --color-accent: #059669;
-  --color-accent-soft: #34d399;
-  --color-accent-deep: #065f46;
-  --color-accent-tint: #a7f3d0;
+  /* Forest accent (Tailwind green-800 / green-300 / green-900 / green-100) */
+  --color-accent: #166534;
+  --color-accent-soft: #86efac;
+  --color-accent-deep: #14532d;
+  --color-accent-tint: #dcfce7;
+
+  /* Nature companion palette (Tailwind earth tones, used as accents in Knowledge) */
+  --color-nature-moss: #65a30d;
+  --color-nature-moss-tint: #ecfccb;
+  --color-nature-ochre: #ca8a04;
+  --color-nature-ochre-tint: #fef9c3;
+  --color-nature-clay: #c2410c;
+  --color-nature-clay-tint: #ffedd5;
+  --color-nature-pine: #115e59;
+  --color-nature-pine-tint: #ccfbf1;
+  --color-nature-bark: #78350f;
+  --color-nature-bark-tint: #fef3c7;
 
   /* Typography */
   --font-display: var(--font-display);
@@ -119,7 +132,7 @@ body {
 }
 .lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -16px rgba(5, 150, 105, 0.25),
+  box-shadow: 0 12px 28px -16px rgba(22, 101, 52, 0.25),
               0 2px 6px -2px rgba(69, 69, 69, 0.06);
 }
 

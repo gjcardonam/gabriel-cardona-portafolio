@@ -12,7 +12,7 @@ type Props = {
 
 /**
  * Horizontal scroller with hidden native scrollbar, prev/next buttons,
- * vertical-wheel-to-horizontal-scroll, and edge fade hints.
+ * and edge fade hints. Vertical wheel still scrolls the page (no hijack).
  */
 export function HorizontalScroller({
   children,
@@ -36,22 +36,11 @@ export function HorizontalScroller({
     updateState();
     el.addEventListener("scroll", updateState, { passive: true });
 
-    // Convert vertical wheel into horizontal scroll. Active listener so we can preventDefault.
-    const handleWheel = (e: WheelEvent) => {
-      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-        e.preventDefault();
-        el.scrollLeft += e.deltaY;
-      }
-    };
-    el.addEventListener("wheel", handleWheel, { passive: false });
-
-    // Recompute on resize
     const resizeObserver = new ResizeObserver(updateState);
     resizeObserver.observe(el);
 
     return () => {
       el.removeEventListener("scroll", updateState);
-      el.removeEventListener("wheel", handleWheel);
       resizeObserver.disconnect();
     };
   }, []);
@@ -70,7 +59,7 @@ export function HorizontalScroller({
         {children}
       </div>
 
-      {/* Edge fade hints — visual cue there's more on each side */}
+      {/* Edge fade hints */}
       <div
         aria-hidden
         className={`pointer-events-none absolute left-0 top-0 h-full w-12 bg-gradient-to-r from-canvas to-transparent transition-opacity duration-300 ease-out ${canScrollLeft ? "opacity-100" : "opacity-0"}`}

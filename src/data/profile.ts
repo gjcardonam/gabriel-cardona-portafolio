@@ -2,11 +2,11 @@ import type { Profile } from "@/types";
 
 export const profile: Profile = {
   name: "Gabriel Cardona",
-  title: "Senior Software Engineer · Backend · Data · DevOps",
+  title: "Software Engineer · Backend · Data · DevOps",
   shortDescription:
     "Ingeniero de software con foco en backend, data engineering y DevOps. Construyo plataformas internas, pipelines de datos y automatizaciones.",
   about:
-    "Soy ingeniero de software senior enfocado en backend, ingeniería de datos y DevOps. Construyo plataformas internas, pipelines de datos y automatizaciones que ayudan a los equipos a entregar más rápido y operar con menos fricción. Me hago cargo de los problemas de punta a punta — desde el modelo de datos hasta el servicio, el pipeline y la observabilidad — y me siento cómodo trabajando entre dominios de software e industria. Abierto a roles remotos mid-senior y staff.",
+    "Soy ingeniero de software enfocado en backend, ingeniería de datos y DevOps. Construyo plataformas internas, pipelines de datos y automatizaciones que ayudan a los equipos a entregar más rápido y operar con menos fricción. Me hago cargo de los problemas de punta a punta. Desde el modelo de datos hasta el servicio, el pipeline y la observabilidad. Me siento cómodo trabajando entre dominios de software e industria. Abierto a roles remotos.",
   photo: "/profile.png",
   contact: [
     {

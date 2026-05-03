@@ -39,8 +39,8 @@ export function Footer() {
             </h3>
             <p className="mt-6 max-w-md text-pretty text-base leading-relaxed text-canvas/75">
               Construyo backend, data pipelines y plataforma. A veces simulo
-              pozos. Si lo que tienes encaja, escríbeme — respondo en menos de
-              24h.
+              pozos. Si lo que tienes encaja, escríbeme. Respondo en menos de
+              24 horas.
             </p>
             <a
               href="mailto:gjcardonam@gmail.com"

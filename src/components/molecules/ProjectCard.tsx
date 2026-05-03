@@ -1,7 +1,5 @@
 import Image from "next/image";
 import { Badge } from "@/components/atoms/Badge";
-import { Button } from "@/components/atoms/Button";
-import { Card } from "@/components/atoms/Card";
 import { Icon } from "@/components/atoms/Icon";
 import type { Project } from "@/types";
 
@@ -13,12 +11,12 @@ type Props = {
 
 export function ProjectCard({ project, index, onLearnMore }: Props) {
   const label = String(index + 1).padStart(2, "0");
-  return (
-    <Card
-      variant="surface"
-      interactive
-      className="group flex w-[320px] flex-none snap-start flex-col p-0 sm:w-[380px]"
-    >
+
+  const cardClasses =
+    "press lift group relative flex w-[320px] flex-none snap-start flex-col overflow-hidden rounded-2xl bg-surface text-left ring-1 ring-rule shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:w-[380px]";
+
+  const cardBody = (
+    <>
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-canvas-soft">
         <Image
           src={project.image}
@@ -32,10 +30,10 @@ export function ProjectCard({ project, index, onLearnMore }: Props) {
         </span>
       </div>
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-xl font-bold tracking-tight text-ink">
+        <h3 className="text-balance text-xl font-bold tracking-tight text-ink">
           {project.title}
         </h3>
-        <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-soft">
+        <p className="mt-2 line-clamp-3 text-pretty text-sm leading-relaxed text-ink-soft">
           {project.shortDescription}
         </p>
         <div className="mt-4 flex flex-wrap gap-1.5">
@@ -45,13 +43,29 @@ export function ProjectCard({ project, index, onLearnMore }: Props) {
             </Badge>
           ))}
         </div>
-        <div className="mt-6">
-          <Button variant="secondary" onClick={onLearnMore}>
-            Saber más
-            <Icon name="arrowRight" size={14} />
-          </Button>
-        </div>
+        <span
+          aria-hidden
+          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold tracking-tight text-ink-soft transition-[color,gap] duration-200 ease-out group-hover:gap-3 group-hover:text-accent-deep"
+        >
+          Saber más
+          <Icon name="arrowRight" size={14} />
+        </span>
       </div>
-    </Card>
+    </>
   );
+
+  if (onLearnMore) {
+    return (
+      <button
+        type="button"
+        onClick={onLearnMore}
+        aria-label={`Ver detalles del proyecto ${project.title}`}
+        className={`${cardClasses} cursor-pointer touch-manipulation`}
+      >
+        {cardBody}
+      </button>
+    );
+  }
+
+  return <div className={cardClasses}>{cardBody}</div>;
 }

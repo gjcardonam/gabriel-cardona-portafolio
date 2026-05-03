@@ -1,6 +1,7 @@
 import { Avatar } from "@/components/atoms/Avatar";
 import { Badge } from "@/components/atoms/Badge";
 import { Card } from "@/components/atoms/Card";
+import { SkillDots } from "@/components/atoms/SkillDots";
 import { ContactItem } from "@/components/molecules/ContactItem";
 import { SkillBar } from "@/components/molecules/SkillBar";
 import { profile } from "@/data/profile";
@@ -16,27 +17,39 @@ export function LeftSidebar() {
     >
       {/* Top status bar */}
       <div className="flex items-baseline justify-between border-b border-rule pb-3 font-mono text-[10px] font-medium uppercase tracking-[0.18em]">
-        <span className="text-ink">/ Portfolio · 2026</span>
+        <span className="text-ink">/ Portafolio · 2026</span>
         <span className="inline-flex items-center gap-1.5 text-accent">
-          <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-          Available
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+          </span>
+          Disponible
         </span>
       </div>
 
       <header className="flex flex-col items-start text-left">
-        <Avatar src={profile.photo} alt={profile.name} size={104} />
+        <div className="relative">
+          <Avatar src={profile.photo} alt={profile.name} size={108} />
+          {/* Decorative leaf stamp */}
+          <span
+            aria-hidden
+            className="font-mono absolute -bottom-1 -right-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-accent text-[9px] font-bold uppercase tracking-tight text-canvas ring-2 ring-surface"
+          >
+            GC
+          </span>
+        </div>
         <h1 className="mt-5 text-2xl font-bold tracking-tight text-ink">
           {profile.name}
         </h1>
         <p className="mt-1 text-sm font-medium text-ink-soft">
-          Senior Software Engineer
+          Software Engineer
         </p>
-        <p className="mt-0.5 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-ink-mute">
+        <p className="mt-1 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-ink-mute">
           Backend / Data / DevOps
         </p>
       </header>
 
-      <SidebarBlock label="A" title="Contacto">
+      <SidebarBlock label="A" title="Contacto" hue="moss">
         <div className="space-y-3">
           {profile.contact.map((c) => (
             <ContactItem key={c.label} item={c} />
@@ -44,23 +57,33 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock label="B" title="Idiomas">
-        <div className="space-y-3">
+      <SidebarBlock label="B" title="Idiomas" hue="ochre">
+        <div className="space-y-4">
           {languages.map((l) => (
             <SkillBar key={l.name} skill={l} />
           ))}
         </div>
       </SidebarBlock>
 
-      <SidebarBlock label="C" title="Lenguajes">
-        <div className="space-y-3">
+      <SidebarBlock label="C" title="Lenguajes" hue="pine">
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
           {programmingLanguages.map((l) => (
-            <SkillBar key={l.name} skill={l} />
+            <li key={l.name} className="flex flex-col gap-1.5">
+              <div className="flex items-baseline justify-between gap-2">
+                <span className="truncate text-sm font-medium text-ink">
+                  {l.name}
+                </span>
+                <span className="font-mono text-[9px] tabular-nums text-ink-mute">
+                  {l.level}
+                </span>
+              </div>
+              <SkillDots value={l.level} total={5} />
+            </li>
           ))}
-        </div>
+        </ul>
       </SidebarBlock>
 
-      <SidebarBlock label="D" title="Habilidades extra">
+      <SidebarBlock label="D" title="Habilidades extra" hue="clay">
         <div className="space-y-4">
           {extraSkills.map((cat) => (
             <div key={cat.category}>
@@ -78,24 +101,53 @@ export function LeftSidebar() {
           ))}
         </div>
       </SidebarBlock>
+
+      {/* Quote / personality footer */}
+      <footer className="border-t border-rule pt-5">
+        <p className="font-display text-balance text-base uppercase leading-snug text-ink-soft">
+          Construyo cosas que se sostienen solas.
+        </p>
+        <p className="mt-2 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-ink-mute">
+          12 años / 6 lenguajes / 1 raspberry pi
+        </p>
+      </footer>
     </Card>
   );
 }
 
+type Hue = "moss" | "ochre" | "pine" | "clay";
+
+const HUE_BG: Record<Hue, string> = {
+  moss: "bg-[var(--color-nature-moss)]",
+  ochre: "bg-[var(--color-nature-ochre)]",
+  pine: "bg-[var(--color-nature-pine)]",
+  clay: "bg-[var(--color-nature-clay)]",
+};
+
 function SidebarBlock({
   label,
   title,
+  hue,
   children,
 }: {
   label: string;
   title: string;
+  hue: Hue;
   children: React.ReactNode;
 }) {
   return (
     <section className="border-t border-rule pt-7">
-      <header className="mb-5 flex items-baseline justify-between font-mono text-[10px] font-medium uppercase tracking-[0.18em]">
-        <span className="text-ink">/ {title}</span>
-        <span className="text-accent">{label}</span>
+      <header className="mb-5 flex items-baseline justify-between">
+        <span className="inline-flex items-center gap-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.18em]">
+          <span
+            aria-hidden
+            className={`inline-block h-2.5 w-2.5 rounded-sm ${HUE_BG[hue]}`}
+          />
+          <span className="text-ink">{title}</span>
+        </span>
+        <span className="font-mono text-[10px] font-medium tabular-nums text-ink-mute">
+          /{label}
+        </span>
       </header>
       {children}
     </section>

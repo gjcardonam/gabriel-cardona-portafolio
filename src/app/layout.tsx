@@ -21,9 +21,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Cardona — Portafolio",
+  title: "Gabriel Cardona · Portafolio",
   description:
-    "Portafolio de Gabriel Cardona, Senior Software Engineer enfocado en Backend, Data Engineering y DevOps.",
+    "Portafolio de Gabriel Cardona, Software Engineer enfocado en Backend, Data Engineering y DevOps.",
   themeColor: "#fafafa",
 };
 
