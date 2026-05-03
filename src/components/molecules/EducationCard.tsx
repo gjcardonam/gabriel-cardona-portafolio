@@ -5,7 +5,7 @@ type Props = { item: Education };
 
 export function EducationCard({ item }: Props) {
   return (
-    <Card variant="surface" interactive className="relative flex h-full flex-col p-7 pl-9">
+    <Card variant="surface" hoverable className="relative flex h-full flex-col p-7 pl-9">
       <span
         aria-hidden
         className="absolute left-0 top-7 bottom-7 w-1 rounded-r-full bg-accent"

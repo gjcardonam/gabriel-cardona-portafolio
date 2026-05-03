@@ -15,10 +15,10 @@
 
   --color-rule: #e4e4e7;
 
-  --color-accent: #10b981;
-  --color-accent-soft: #6ee7b7;
-  --color-accent-deep: #047857;
-  --color-accent-tint: #d1fae5;
+  --color-accent: #059669;
+  --color-accent-soft: #34d399;
+  --color-accent-deep: #065f46;
+  --color-accent-tint: #a7f3d0;
 
   /* Typography */
   --font-display: var(--font-display);
@@ -119,7 +119,7 @@ body {
 }
 .lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -16px rgba(16, 185, 129, 0.25),
+  box-shadow: 0 12px 28px -16px rgba(5, 150, 105, 0.25),
               0 2px 6px -2px rgba(69, 69, 69, 0.06);
 }
 
