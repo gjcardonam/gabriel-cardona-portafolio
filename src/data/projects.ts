@@ -5,39 +5,43 @@ export const projects: Project[] = [
     id: "claude-udea",
     title: "Claude UdeA",
     shortDescription:
-      "Asistente académico personal para estudiantes de la Universidad de Antioquia.",
+      "CLI que descarga transcripciones de Zoom desde Moodle y abre Claude Code como tutor académico.",
     longDescription:
-      "Asistente académico construido sobre la CLI de IA conversacional, especializado en interpretar transcripciones de clase en formato WebVTT. Organiza pendientes (parciales, talleres, entregas), permite buscar temas con timestamps exactos, planifica horarios de estudio y sirve como tutor que solo responde con base en lo visto en clase. Incluye comandos personalizados (/temas, /enseñar, /buscar, /pendientes, /planear, /taller, /ejemplos) y un índice JSON que cruza fechas, asignaturas y duraciones para responder preguntas como \"¿qué se vio el martes pasado?\" en segundos.",
+      "Herramienta de línea de comandos que automatiza el flujo académico: scrapea Moodle (UdeArroba) por HTTP directo sin navegador, descarga las transcripciones de Zoom de cada asignatura en paralelo, y abre Claude Code (o Gemini CLI) como asistente personalizado con tus clases. Setup interactivo la primera vez, sesión persistente, descarga incremental con deduplicación inteligente, y skills de Claude para estudiar (/temas, /enseñar, /buscar, /pendientes, /planear). Cross-platform: corre desde Windows hasta Raspberry Pi headless.",
     image: "/projects/claude-udea.svg",
-    tech: ["Python", "WebVTT", "JSON", "Bash", "Linux", "Skills/Slash Commands"],
+    tech: ["Python", "Claude Code", "Moodle scraping", "yt-dlp", "Cross-platform CLI"],
     links: [
-      { label: "Repositorio (privado)", href: "#" },
+      {
+        label: "Ver en GitHub",
+        href: "https://github.com/gjcardonam/claude-udea",
+      },
     ],
   },
   {
-    id: "flowsim",
-    title: "FlowSim",
+    id: "espsim",
+    title: "EspSim",
     shortDescription:
-      "Simulador numérico en Fortran para flujo de espumas en medios porosos.",
+      "API en .NET para simular pozos con bombeo eléctrico sumergible (ESP) — presión, flujo y curvas VLP.",
     longDescription:
-      "Software de simulación numérica desarrollado en Fortran para modelar el flujo de espumas en medios porosos, en el contexto de recobro mejorado de petróleo. Implementa esquemas numéricos para resolver las ecuaciones de transporte y conservación que gobiernan el desplazamiento de fases en el yacimiento. Construido como parte del trabajo en el grupo de investigación de simulación de yacimientos de la Universidad Nacional de Colombia.",
-    image: "/projects/flowsim.svg",
-    tech: ["Fortran", "Linux", "Métodos numéricos", "Simulación de yacimientos"],
+      "Simulador de pozos con bombeo eléctrico sumergible (ESP) construido como API REST en .NET. Calcula traversal de presión y flujo a lo largo del wellbore, integra con condiciones de frontera arbitrarias y genera curvas VLP (Vertical Lift Performance) para análisis nodal. Continúa el trabajo de simulación numérica que arrancó con software Fortran del grupo de investigación de yacimientos de la Universidad Nacional, ahora migrado a un stack moderno con OpenAPI/Swagger y arquitectura de servicios.",
+    image: "/projects/espsim.svg",
+    tech: ["C#", ".NET", "ASP.NET Core", "Swagger/OpenAPI", "Simulación numérica"],
     links: [
-      { label: "Repositorio (privado)", href: "#" },
+      {
+        label: "Ver en GitHub",
+        href: "https://github.com/gjcardonam/EspSim",
+      },
     ],
   },
   {
     id: "jarvis",
     title: "Jarvis",
     shortDescription:
-      "Asistente personal de productividad sobre infraestructura propia.",
+      "Asistente personal de productividad sobre Raspberry Pi + Docker + Tailscale.",
     longDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Jarvis es un asistente personal de productividad construido sobre infraestructura propia (Raspberry Pi + Docker + Tailscale) que integra calendario, correo, tareas y comandos por voz para automatizar el día a día. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
+      "Asistente personal de productividad construido sobre infraestructura propia (Raspberry Pi 5 + Docker + Tailscale) que integra calendario, correo, tareas y comandos por voz para automatizar el día a día. Corre 24/7 en LAN privada, accesible desde cualquier dispositivo a través de Tailscale, sin depender de servicios externos para la lógica core. En desarrollo activo — repositorio privado por ahora.",
     image: "/projects/jarvis.svg",
     tech: ["Python", "Docker", "Raspberry Pi", "Tailscale", "REST APIs"],
-    links: [
-      { label: "Repositorio (privado)", href: "#" },
-    ],
+    links: [{ label: "Repositorio privado · WIP", href: "#" }],
   },
 ];

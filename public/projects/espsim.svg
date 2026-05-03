@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="well" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#34d399" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#34d399" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#34d399" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="280" fill="url(#bg)"/>
+  <!-- Wellbore visual: vertical ribbon -->
+  <rect x="380" y="10" width="60" height="260" fill="url(#well)" opacity="0.7"/>
+  <line x1="395" y1="10" x2="395" y2="270" stroke="#34d399" stroke-width="1.2" stroke-opacity="0.7"/>
+  <line x1="425" y1="10" x2="425" y2="270" stroke="#34d399" stroke-width="1.2" stroke-opacity="0.7"/>
+  <!-- Pump symbol -->
+  <g transform="translate(395,180)" fill="#34d399">
+    <rect x="-2" y="0" width="34" height="6" rx="1"/>
+    <rect x="-2" y="14" width="34" height="6" rx="1"/>
+    <rect x="-2" y="28" width="34" height="6" rx="1"/>
+  </g>
+  <g transform="translate(40,60)" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" fill="#f1f5f9">
+    <text font-size="13" font-weight="600" letter-spacing="3" fill="#94a3b8">SIMULACIÓN DE POZOS · .NET</text>
+    <text y="44" font-size="42" font-weight="800">EspSim</text>
+    <text y="80" font-size="15" font-weight="500" fill="#cbd5e1">Bombeo eléctrico sumergible · Curvas VLP</text>
+  </g>
+</svg>
