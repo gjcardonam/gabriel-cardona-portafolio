@@ -10,6 +10,7 @@ export function PortfolioSection({ onSelectProject }: Props) {
   return (
     <section id="portafolio" className="scroll-mt-6">
       <SectionTitle
+        number="04"
         eyebrow="Portafolio"
         title="Proyectos seleccionados"
         description="Algunos proyectos en los que he trabajado, desde investigación universitaria hasta herramientas internas."

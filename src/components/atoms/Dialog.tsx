@@ -45,29 +45,37 @@ export function Dialog({
       role="dialog"
       aria-modal="true"
       aria-label={title}
-      className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-6"
+      className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-6"
     >
       <button
         type="button"
         aria-label="Cerrar"
         onClick={onClose}
-        className="absolute inset-0 cursor-default bg-slate-900/60 backdrop-blur-sm"
+        className="anim-fade absolute inset-0 cursor-default bg-ink/30 backdrop-blur-md"
       />
+      {/* Modal: scale-in 250ms (within emil's 200-500ms range), strong ease-out, modals stay centered */}
       <div
-        className={`relative w-full ${MAX_WIDTH[maxWidth]} max-h-[90vh] overflow-hidden rounded-t-3xl bg-white shadow-2xl ring-1 ring-slate-200 sm:rounded-3xl`}
+        className={`anim-scale-in relative w-full ${MAX_WIDTH[maxWidth]} max-h-[90vh] overflow-hidden rounded-t-3xl bg-surface shadow-[0_24px_64px_-16px_rgba(9,9,11,0.25)] ring-1 ring-rule sm:rounded-3xl`}
       >
-        <header className="flex items-center justify-between gap-4 border-b border-slate-100 px-6 py-4">
-          <h2 className="text-lg font-bold text-slate-900">{title}</h2>
+        <header className="flex items-baseline justify-between gap-4 border-b border-rule px-7 py-5">
+          <div>
+            <p className="font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-accent">
+              / Detalle
+            </p>
+            <h2 className="font-display mt-0.5 text-3xl uppercase text-ink">
+              {title}
+            </h2>
+          </div>
           <button
             type="button"
             onClick={onClose}
             aria-label="Cerrar diálogo"
-            className="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900"
+            className="press inline-flex h-9 w-9 flex-none items-center justify-center rounded-full text-ink-mute transition-colors duration-150 ease-out hover:bg-canvas-soft hover:text-ink"
           >
-            <Icon name="close" size={20} />
+            <Icon name="close" size={18} />
           </button>
         </header>
-        <div className="max-h-[calc(90vh-4rem)] overflow-y-auto px-6 py-6">
+        <div className="max-h-[calc(90vh-6rem)] overflow-y-auto px-7 py-7">
           {children}
         </div>
       </div>

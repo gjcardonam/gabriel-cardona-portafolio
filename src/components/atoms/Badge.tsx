@@ -1,17 +1,21 @@
+type Variant = "default" | "outline" | "accent";
+
 type Props = {
   children: React.ReactNode;
-  variant?: "default" | "outline";
+  variant?: Variant;
   className?: string;
 };
 
+const STYLES: Record<Variant, string> = {
+  default: "bg-canvas-soft text-ink-soft border border-rule",
+  outline: "border border-rule text-ink-soft bg-transparent",
+  accent: "bg-accent-tint text-accent-deep border border-accent/20",
+};
+
 export function Badge({ children, variant = "default", className = "" }: Props) {
-  const styles =
-    variant === "outline"
-      ? "border border-slate-300 text-slate-700 bg-transparent"
-      : "bg-teal-600/10 text-teal-700 border border-teal-600/20";
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${styles} ${className}`}
+      className={`inline-flex items-center rounded-md px-2 py-0.5 text-[11px] font-medium tracking-tight ${STYLES[variant]} ${className}`}
     >
       {children}
     </span>

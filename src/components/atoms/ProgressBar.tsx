@@ -9,15 +9,19 @@ export function ProgressBar({ value, label, showValue = true }: Props) {
   return (
     <div className="w-full">
       {(label || showValue) && (
-        <div className="flex items-center justify-between text-xs">
-          {label && <span className="text-slate-700">{label}</span>}
+        <div className="flex items-baseline justify-between">
+          {label && (
+            <span className="text-sm font-medium text-ink">{label}</span>
+          )}
           {showValue && (
-            <span className="text-slate-500">{safeValue}%</span>
+            <span className="font-mono text-[10px] tabular-nums text-ink-mute">
+              {String(safeValue).padStart(2, "0")}
+            </span>
           )}
         </div>
       )}
       <div
-        className="mt-1 h-2 w-full overflow-hidden rounded-full bg-slate-200"
+        className="mt-1.5 h-[3px] w-full overflow-hidden rounded-full bg-canvas-deep"
         role="progressbar"
         aria-valuenow={safeValue}
         aria-valuemin={0}
@@ -25,8 +29,11 @@ export function ProgressBar({ value, label, showValue = true }: Props) {
         aria-label={label}
       >
         <div
-          className="h-full rounded-full bg-gradient-to-r from-teal-600 to-teal-400 transition-all duration-500"
-          style={{ width: `${safeValue}%` }}
+          className="h-full rounded-full bg-accent"
+          style={{
+            width: `${safeValue}%`,
+            transition: "width 600ms cubic-bezier(0.23, 1, 0.32, 1)",
+          }}
         />
       </div>
     </div>

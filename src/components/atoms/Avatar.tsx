@@ -10,7 +10,7 @@ type Props = {
 export function Avatar({ src, alt, size = 96, className = "" }: Props) {
   return (
     <div
-      className={`relative overflow-hidden rounded-full ring-4 ring-white shadow-md bg-white ${className}`}
+      className={`relative overflow-hidden rounded-full bg-surface ring-4 ring-surface shadow-card ${className}`}
       style={{ width: size, height: size }}
     >
       <Image
