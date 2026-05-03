@@ -58,7 +58,7 @@ export function ProfileSection({ onOpenDialog }: Props) {
         <figure className="anim-scale-in stagger-3 relative w-fit">
           <div
             aria-hidden
-            className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl bg-accent"
+            className="absolute -bottom-4 -right-4 h-full w-full rounded-2xl bg-accent-soft"
           />
           <div className="relative h-[300px] w-[230px] overflow-hidden rounded-2xl bg-surface ring-1 ring-rule shadow-card sm:h-[360px] sm:w-[270px]">
             <Image
