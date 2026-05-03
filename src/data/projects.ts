@@ -85,20 +85,4 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    id: "rick-and-morty-explorer",
-    title: "Rick and Morty Explorer",
-    shortDescription:
-      "Mini SPA que consume la Rick and Morty API con búsqueda, filtros, paginación y diseño responsive.",
-    longDescription:
-      "Aplicación web que consume la Rick and Morty API para buscar y explorar personajes de la serie. Permite búsqueda por nombre, filtros por estado (vivo, muerto, desconocido) y por especie, grid de cards con imagen y datos de cada personaje, paginación entre resultados, manejo de errores cuando no hay resultados o falla la conexión, y diseño responsive para escritorio, tablet y celular. Construido como Taller Evaluativo 1 del curso de Ingeniería Web 2026·1.",
-    image: "/projects/rick-and-morty.svg",
-    tech: ["JavaScript", "HTML", "CSS", "REST API", "Responsive design"],
-    links: [
-      {
-        label: "Ver en GitHub",
-        href: "https://github.com/gjcardonam/taller1-ingenieria-web",
-      },
-    ],
-  },
 ];
