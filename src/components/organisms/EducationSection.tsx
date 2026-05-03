@@ -4,16 +4,19 @@ import { education } from "@/data/education";
 
 export function EducationSection() {
   return (
-    <section id="educacion" className="scroll-mt-6">
+    <section
+      id="educacion"
+      className="scroll-mt-6 border-b border-ink/15 py-20"
+    >
       <SectionTitle
         number="03"
         eyebrow="Educación"
         title="Formación académica"
         description="Pregrados y certificaciones técnicas relevantes para mi trayectoria profesional."
       />
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-        {education.map((e) => (
-          <EducationCard key={e.id} item={e} />
+      <div className="border-b border-ink/15">
+        {education.map((e, idx) => (
+          <EducationCard key={e.id} item={e} index={idx} />
         ))}
       </div>
     </section>

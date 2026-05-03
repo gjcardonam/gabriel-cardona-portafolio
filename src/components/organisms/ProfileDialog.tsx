@@ -21,37 +21,51 @@ const HIGHLIGHTS = [
 export function ProfileDialog({ open, onClose }: Props) {
   return (
     <Dialog open={open} onClose={onClose} title="Sobre mí" maxWidth="lg">
-      <div className="space-y-6">
-        <p className="text-base leading-relaxed text-slate-700">
+      <div className="space-y-8">
+        <p className="font-display text-xl leading-snug text-ink first-letter:float-left first-letter:mr-3 first-letter:font-display first-letter:text-6xl first-letter:font-semibold first-letter:leading-[0.85] first-letter:text-accent">
           {profile.about}
         </p>
 
         <section>
-          <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">
-            Lo que aporto
-          </h3>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {HIGHLIGHTS.map((h) => (
+          <header className="mb-4 flex items-baseline justify-between border-t border-ink/15 pt-3">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute">
+              Lo que aporto
+            </h3>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-accent">
+              §A
+            </span>
+          </header>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {HIGHLIGHTS.map((h, i) => (
               <div
                 key={h}
-                className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700"
+                className="grid grid-cols-[auto_1fr] items-start gap-3"
               >
-                <span className="inline-block h-1.5 w-1.5 flex-none rounded-full bg-teal-500" />
-                {h}
+                <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span className="text-sm leading-relaxed text-ink-soft">
+                  {h}
+                </span>
               </div>
             ))}
           </div>
         </section>
 
         <section>
-          <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">
-            Contacto rápido
-          </h3>
+          <header className="mb-4 flex items-baseline justify-between border-t border-ink/15 pt-3">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-mute">
+              Contacto rápido
+            </h3>
+            <span className="font-mono text-[10px] tracking-[0.3em] text-accent">
+              §B
+            </span>
+          </header>
           <div className="flex flex-wrap gap-2">
             {profile.contact.map((c) =>
               c.href ? (
                 <a key={c.label} href={c.href}>
-                  <Badge>{c.value}</Badge>
+                  <Badge variant="accent">{c.value}</Badge>
                 </a>
               ) : (
                 <Badge key={c.label}>{c.value}</Badge>
