@@ -1,10 +1,6 @@
 import { LeftSidebar } from "@/components/organisms/LeftSidebar";
 import { RightSidebar } from "@/components/organisms/RightSidebar";
-import { ProfileSection } from "@/components/organisms/ProfileSection";
-import { KnowledgeSection } from "@/components/organisms/KnowledgeSection";
-import { EducationSection } from "@/components/organisms/EducationSection";
-import { PortfolioSection } from "@/components/organisms/PortfolioSection";
-import { Footer } from "@/components/organisms/Footer";
+import { CenterContent } from "@/components/organisms/CenterContent";
 
 export default function Home() {
   return (
@@ -13,13 +9,7 @@ export default function Home() {
         <LeftSidebar />
       </div>
 
-      <main className="flex min-w-0 flex-col gap-12 pb-6">
-        <ProfileSection />
-        <KnowledgeSection />
-        <EducationSection />
-        <PortfolioSection />
-        <Footer />
-      </main>
+      <CenterContent />
 
       <div className="lg:sticky lg:top-6 lg:self-start">
         <RightSidebar />
