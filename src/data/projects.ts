@@ -7,7 +7,7 @@ export const projects: Project[] = [
     shortDescription:
       "CLI que descarga transcripciones de Zoom desde Moodle y abre Claude Code como tutor académico.",
     longDescription:
-      "Herramienta de línea de comandos que automatiza el flujo académico: scrapea Moodle (UdeArroba) por HTTP directo sin navegador, descarga las transcripciones de Zoom de cada asignatura en paralelo, y abre Claude Code (o Gemini CLI) como asistente personalizado con tus clases. Setup interactivo la primera vez, sesión persistente, descarga incremental con deduplicación inteligente, y skills personalizados para estudiar (/temas, /enseñar, /buscar, /pendientes, /planear). Cross-platform: corre desde Windows hasta Raspberry Pi headless.",
+      "Herramienta de línea de comandos que automatiza el flujo académico: scrapea Moodle (UdeArroba) por HTTP directo sin navegador, descarga las transcripciones de Zoom de cada asignatura en paralelo, y abre Claude Code (o Gemini CLI) como asistente personalizado con tus clases. Setup interactivo la primera vez, sesión persistente, descarga incremental con deduplicación inteligente, y skills personalizados para estudiar (/temas, /enseñar, /buscar, /pendientes, /planear). Cross-platform: corre en Windows, macOS y Linux.",
     image: "/projects/claude-udea.svg",
     tech: ["Python", "Claude Code", "Moodle scraping", "yt-dlp", "Cross-platform CLI"],
     links: [

@@ -2,16 +2,16 @@ import { Card } from "@/components/atoms/Card";
 import { Icon } from "@/components/atoms/Icon";
 import type { Knowledge } from "@/types";
 
-type Hue = "orange" | "blue" | "olive";
+type Hue = "olive" | "orange" | "blue";
 type Pattern = "dots" | "grid" | "diag" | "arcs" | "plus" | "circles";
 
 const VARIANTS: { hue: Hue; pattern: Pattern }[] = [
-  { hue: "orange", pattern: "dots" },
-  { hue: "blue", pattern: "grid" },
-  { hue: "olive", pattern: "diag" },
-  { hue: "orange", pattern: "arcs" },
-  { hue: "blue", pattern: "plus" },
-  { hue: "olive", pattern: "circles" },
+  { hue: "olive", pattern: "dots" },
+  { hue: "orange", pattern: "grid" },
+  { hue: "blue", pattern: "diag" },
+  { hue: "olive", pattern: "arcs" },
+  { hue: "orange", pattern: "plus" },
+  { hue: "blue", pattern: "circles" },
 ];
 
 const HUE_TOKENS: Record<
@@ -26,16 +26,18 @@ const HUE_TOKENS: Record<
     explore: string;
   }
 > = {
-  orange: {
+  // olive = primary accent (Anthropic green)
+  olive: {
     chipBg: "bg-accent-tint",
     chipText: "text-accent-deep",
     chipRing: "ring-accent/15",
     chipHoverBg: "group-hover:bg-accent group-hover:text-canvas group-hover:ring-accent",
     pattern: "text-accent",
-    ghost: "text-accent/[0.08] group-hover:text-accent/[0.15]",
-    explore: "text-accent",
+    ghost: "text-accent/[0.10] group-hover:text-accent/[0.18]",
+    explore: "text-accent-deep",
   },
-  blue: {
+  // orange = secondary accent (Anthropic orange)
+  orange: {
     chipBg: "bg-secondary-tint",
     chipText: "text-secondary-deep",
     chipRing: "ring-secondary/15",
@@ -44,7 +46,8 @@ const HUE_TOKENS: Record<
     ghost: "text-secondary/[0.10] group-hover:text-secondary/[0.18]",
     explore: "text-secondary-deep",
   },
-  olive: {
+  // blue = tertiary accent (Anthropic blue)
+  blue: {
     chipBg: "bg-tertiary-tint",
     chipText: "text-tertiary-deep",
     chipRing: "ring-tertiary/15",
@@ -111,7 +114,6 @@ export function KnowledgeCard({ item, index }: Props) {
       hoverable
       className="group relative flex h-full flex-col overflow-hidden p-7 sm:p-8"
     >
-      {/* Big ghost number, hue tinted */}
       <span
         aria-hidden
         className={`font-display pointer-events-none absolute -bottom-6 -right-2 select-none text-[11rem] leading-none tracking-tight transition-[color,transform] duration-500 ease-out group-hover:scale-105 ${tokens.ghost}`}
@@ -119,7 +121,6 @@ export function KnowledgeCard({ item, index }: Props) {
         {label}
       </span>
 
-      {/* Pattern decoration top-right, hue colored */}
       <span
         aria-hidden
         className={`pointer-events-none absolute right-5 top-5 h-16 w-16 opacity-30 transition-opacity duration-300 ease-out group-hover:opacity-70 ${tokens.pattern}`}
@@ -130,7 +131,6 @@ export function KnowledgeCard({ item, index }: Props) {
         }}
       />
 
-      {/* Icon chip in hue color */}
       <span
         className={`relative inline-flex h-12 w-12 items-center justify-center rounded-xl ring-1 transition-[transform,background-color,color,box-shadow] duration-200 ease-out group-hover:scale-110 ${tokens.chipBg} ${tokens.chipText} ${tokens.chipRing} ${tokens.chipHoverBg}`}
       >

@@ -3,9 +3,9 @@ import { Badge } from "@/components/atoms/Badge";
 import { Icon } from "@/components/atoms/Icon";
 import type { Project } from "@/types";
 
-type Hue = "orange" | "blue" | "olive";
+type Hue = "olive" | "orange" | "blue";
 
-const HUE_VARIANTS: Hue[] = ["orange", "blue", "olive"];
+const HUE_VARIANTS: Hue[] = ["olive", "orange", "blue"];
 
 const HUE_TOKENS: Record<
   Hue,
@@ -16,19 +16,22 @@ const HUE_TOKENS: Record<
     hoverArrow: string;
   }
 > = {
-  orange: {
+  // olive = primary accent (Anthropic green)
+  olive: {
     badge: "bg-accent-tint text-accent-deep ring-accent/20",
     accentText: "text-accent-deep",
     accentBg: "bg-accent",
     hoverArrow: "group-hover:text-accent-deep",
   },
-  blue: {
+  // orange = secondary accent (Anthropic orange)
+  orange: {
     badge: "bg-secondary-tint text-secondary-deep ring-secondary/20",
     accentText: "text-secondary-deep",
     accentBg: "bg-secondary",
     hoverArrow: "group-hover:text-secondary-deep",
   },
-  olive: {
+  // blue = tertiary accent (Anthropic blue)
+  blue: {
     badge: "bg-tertiary-tint text-tertiary-deep ring-tertiary/20",
     accentText: "text-tertiary-deep",
     accentBg: "bg-tertiary",

@@ -3,7 +3,7 @@
 /*
  * Palette: Anthropic Brand colors (warm cream + 3 distinct accent hues).
  * Source: Anthropic brand identity / brand-guidelines skill.
- * Cream warm bg + dark ink + orange primary + blue secondary + olive tertiary.
+ * Cream warm bg + dark ink + olive primary + orange secondary + blue tertiary.
  * Multi-hue palette designed for editorial elegance, used by Anthropic's products.
  */
 @theme inline {
@@ -20,23 +20,23 @@
 
   --color-rule: #e8e6dc;            /* Anthropic Light Gray */
 
-  /* Primary accent · Orange (Anthropic primary) */
-  --color-accent: #d97757;
-  --color-accent-soft: #f0a988;
-  --color-accent-deep: #b85a3e;
-  --color-accent-tint: #fbe9df;
+  /* Primary accent · Olive Green (Anthropic green) */
+  --color-accent: #788c5d;
+  --color-accent-soft: #9faf86;
+  --color-accent-deep: #5a6a45;
+  --color-accent-tint: #eef0e8;
 
-  /* Secondary accent · Blue (Anthropic blue) */
-  --color-secondary: #6a9bcc;
-  --color-secondary-soft: #a8c4dd;
-  --color-secondary-deep: #4d7ba8;
-  --color-secondary-tint: #e6eef7;
+  /* Secondary accent · Orange (Anthropic orange) */
+  --color-secondary: #d97757;
+  --color-secondary-soft: #f0a988;
+  --color-secondary-deep: #b85a3e;
+  --color-secondary-tint: #fbe9df;
 
-  /* Tertiary accent · Olive Green (Anthropic green) */
-  --color-tertiary: #788c5d;
-  --color-tertiary-soft: #9faf86;
-  --color-tertiary-deep: #5a6a45;
-  --color-tertiary-tint: #eef0e8;
+  /* Tertiary accent · Blue (Anthropic blue) */
+  --color-tertiary: #6a9bcc;
+  --color-tertiary-soft: #a8c4dd;
+  --color-tertiary-deep: #4d7ba8;
+  --color-tertiary-tint: #e6eef7;
 
   /* Typography */
   --font-display: var(--font-display);
@@ -126,7 +126,7 @@ body {
 .lift:hover {
   transform: translateY(-2px);
   /* Warm shadow to match palette */
-  box-shadow: 0 12px 28px -16px rgba(217, 119, 87, 0.20),
+  box-shadow: 0 12px 28px -16px rgba(120, 140, 93, 0.22),
               0 2px 6px -2px rgba(20, 20, 19, 0.06);
 }
 

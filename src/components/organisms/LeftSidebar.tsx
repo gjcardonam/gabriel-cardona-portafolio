@@ -108,7 +108,7 @@ export function LeftSidebar() {
           Construyo cosas que se sostienen solas.
         </p>
         <p className="mt-2 font-mono text-[10px] font-medium uppercase tracking-[0.16em] text-ink-mute">
-          12 años / 6 lenguajes / 1 raspberry pi
+          3 años en producción / stack agnóstico / abierto a remoto
         </p>
       </footer>
     </Card>
