@@ -148,14 +148,6 @@ export function KnowledgeCard({ item, index }: Props) {
       <p className="relative mt-3 text-pretty text-sm leading-relaxed text-ink-soft">
         {item.description}
       </p>
-
-      <span
-        aria-hidden
-        className={`relative mt-auto inline-flex items-center gap-2 pt-6 font-mono text-[10px] font-medium uppercase tracking-[0.18em] opacity-0 transition-[opacity,transform] duration-300 ease-out -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 ${tokens.explore}`}
-      >
-        Explorar
-        <Icon name="arrowRight" size={12} />
-      </span>
     </Card>
   );
 }

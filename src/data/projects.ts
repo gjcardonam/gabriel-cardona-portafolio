@@ -49,4 +49,56 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    id: "crediscan",
+    title: "Crediscan",
+    shortDescription:
+      "Motor de credit scoring en Java 21 + Spring Boot 3 con arquitectura hexagonal y frontend en React.",
+    longDescription:
+      "Motor de evaluación de solicitudes de crédito (credit scoring) construido como una API REST en Java 21 con Spring Boot 3.4, siguiendo arquitectura hexagonal (puertos y adaptadores) para aislar el dominio de la infraestructura. Persistencia en PostgreSQL, dockerizado con Docker Compose para arrancar todo con un solo comando. El frontend (React + Vite) consume la API para visualizar las solicitudes y los scores.",
+    image: "/projects/crediscan.svg",
+    tech: ["Java 21", "Spring Boot 3", "PostgreSQL", "Hexagonal Architecture", "React", "Vite", "Docker"],
+    links: [
+      {
+        label: "API en GitHub",
+        href: "https://github.com/gjcardonam/crediscan-api",
+      },
+      {
+        label: "Frontend en GitHub",
+        href: "https://github.com/gjcardonam/crediscan-front",
+      },
+    ],
+  },
+  {
+    id: "farmacontable",
+    title: "Farmacontable",
+    shortDescription:
+      "Sistema de contabilidad de escritorio para farmacias en Python con Tkinter y PostgreSQL.",
+    longDescription:
+      "Sistema de contabilidad para farmacias construido como aplicación de escritorio en Python con interfaz Tkinter y persistencia en PostgreSQL. Maneja autenticación con login, usuarios con roles (admin, vendedor), gestión de clientes, farmacias y productos con control de inventario, registro de facturas y control de ventas. Arquitectura por capas (GUI, controller, service, repository) y conexión a base de datos vía psycopg2. Funciona local sin necesidad de internet.",
+    image: "/projects/farmacontable.svg",
+    tech: ["Python", "Tkinter", "PostgreSQL", "psycopg2", "Arquitectura por capas"],
+    links: [
+      {
+        label: "Ver en GitHub",
+        href: "https://github.com/gjcardonam/desktop-app-farmacias",
+      },
+    ],
+  },
+  {
+    id: "rick-and-morty-explorer",
+    title: "Rick and Morty Explorer",
+    shortDescription:
+      "Mini SPA que consume la Rick and Morty API con búsqueda, filtros, paginación y diseño responsive.",
+    longDescription:
+      "Aplicación web que consume la Rick and Morty API para buscar y explorar personajes de la serie. Permite búsqueda por nombre, filtros por estado (vivo, muerto, desconocido) y por especie, grid de cards con imagen y datos de cada personaje, paginación entre resultados, manejo de errores cuando no hay resultados o falla la conexión, y diseño responsive para escritorio, tablet y celular. Construido como Taller Evaluativo 1 del curso de Ingeniería Web 2026·1.",
+    image: "/projects/rick-and-morty.svg",
+    tech: ["JavaScript", "HTML", "CSS", "REST API", "Responsive design"],
+    links: [
+      {
+        label: "Ver en GitHub",
+        href: "https://github.com/gjcardonam/taller1-ingenieria-web",
+      },
+    ],
+  },
 ];
