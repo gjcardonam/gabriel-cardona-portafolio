@@ -1,3 +1,4 @@
+import { HorizontalScroller } from "@/components/atoms/HorizontalScroller";
 import { Reveal } from "@/components/atoms/Reveal";
 import { SectionTitle } from "@/components/atoms/SectionTitle";
 import { ProjectCard } from "@/components/molecules/ProjectCard";
@@ -16,8 +17,8 @@ export function PortfolioSection({ onSelectProject }: Props) {
         title="Proyectos seleccionados"
         description="Algunos proyectos en los que he trabajado, desde investigación universitaria hasta herramientas internas."
       />
-      <div className="-mx-2 overflow-x-auto px-2 pb-4 sm:-mx-4 sm:px-4">
-        <div className="flex snap-x snap-mandatory gap-4">
+      <HorizontalScroller step={400} className="-mx-2 sm:-mx-4">
+        <div className="flex snap-x snap-mandatory gap-4 px-2 pb-2 sm:px-4">
           {projects.map((p, idx) => (
             <Reveal key={p.id} delay={idx * 80}>
               <ProjectCard
@@ -30,7 +31,7 @@ export function PortfolioSection({ onSelectProject }: Props) {
             </Reveal>
           ))}
         </div>
-      </div>
+      </HorizontalScroller>
     </section>
   );
 }
