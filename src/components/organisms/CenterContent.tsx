@@ -21,7 +21,7 @@ export function CenterContent() {
 
   return (
     <>
-      <main className="flex min-w-0 flex-col gap-12 pb-6">
+      <main className="flex min-w-0 flex-col">
         <ProfileSection onOpenDialog={() => setProfileOpen(true)} />
         <KnowledgeSection />
         <EducationSection />

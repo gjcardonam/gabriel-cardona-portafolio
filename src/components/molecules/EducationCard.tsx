@@ -1,23 +1,31 @@
+import { Card } from "@/components/atoms/Card";
 import type { Education } from "@/types";
 
 type Props = { item: Education };
 
 export function EducationCard({ item }: Props) {
   return (
-    <article className="relative rounded-2xl bg-white p-6 pl-8 shadow-sm ring-1 ring-slate-200/70 transition-all hover:-translate-y-0.5 hover:shadow-md hover:ring-teal-300">
-      <span className="absolute left-0 top-6 bottom-6 w-1 rounded-r-full bg-gradient-to-b from-teal-500 to-teal-700" />
-      <header className="flex flex-col justify-between gap-2 sm:flex-row sm:items-baseline">
+    <Card variant="surface" interactive className="relative flex h-full flex-col p-7 pl-9">
+      <span
+        aria-hidden
+        className="absolute left-0 top-7 bottom-7 w-1 rounded-r-full bg-accent"
+      />
+      <header className="flex flex-col justify-between gap-3 sm:flex-row sm:items-baseline">
         <div>
-          <h3 className="text-lg font-semibold text-slate-900">{item.degree}</h3>
-          <p className="text-sm font-medium text-teal-700">{item.institution}</p>
+          <h3 className="text-xl font-bold tracking-tight text-ink">
+            {item.degree}
+          </h3>
+          <p className="mt-1 text-sm font-medium text-accent-deep">
+            {item.institution}
+          </p>
         </div>
-        <span className="whitespace-nowrap text-xs font-semibold uppercase tracking-wider text-slate-500">
-          {item.startDate} — {item.endDate}
+        <span className="whitespace-nowrap font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-ink-mute">
+          {item.startDate} → {item.endDate}
         </span>
       </header>
-      <p className="mt-3 text-sm leading-relaxed text-slate-600">
+      <p className="mt-4 text-sm leading-relaxed text-ink-soft">
         {item.description}
       </p>
-    </article>
+    </Card>
   );
 }
