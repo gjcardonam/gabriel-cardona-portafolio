@@ -55,7 +55,7 @@ export function Dialog({
       />
       {/* Modal: scale-in 250ms (within emil's 200-500ms range), strong ease-out, modals stay centered */}
       <div
-        className={`anim-scale-in relative w-full ${MAX_WIDTH[maxWidth]} max-h-[90vh] overflow-hidden rounded-t-3xl bg-surface shadow-[0_24px_64px_-16px_rgba(9,9,11,0.25)] ring-1 ring-rule sm:rounded-3xl`}
+        className={`anim-scale-in relative w-full ${MAX_WIDTH[maxWidth]} max-h-[90vh] overflow-hidden rounded-t-3xl bg-surface shadow-[0_24px_64px_-16px_rgba(69,69,69,0.25)] ring-1 ring-rule sm:rounded-3xl`}
       >
         <header className="flex items-baseline justify-between gap-4 border-b border-rule px-7 py-5">
           <div>

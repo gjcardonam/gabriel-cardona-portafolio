@@ -7,7 +7,7 @@ export const profile: Profile = {
     "Ingeniero de software con foco en backend, data engineering y DevOps. Construyo plataformas internas, pipelines de datos y automatizaciones.",
   about:
     "Soy ingeniero de software senior enfocado en backend, ingeniería de datos y DevOps. Construyo plataformas internas, pipelines de datos y automatizaciones que ayudan a los equipos a entregar más rápido y operar con menos fricción. Me hago cargo de los problemas de punta a punta — desde el modelo de datos hasta el servicio, el pipeline y la observabilidad — y me siento cómodo trabajando entre dominios de software e industria. Abierto a roles remotos mid-senior y staff.",
-  photo: "/profile.svg",
+  photo: "/profile.png",
   contact: [
     {
       label: "Ciudad",
