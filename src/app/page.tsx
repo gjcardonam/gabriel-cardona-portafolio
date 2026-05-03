@@ -1,5 +1,10 @@
 import { LeftSidebar } from "@/components/organisms/LeftSidebar";
 import { RightSidebar } from "@/components/organisms/RightSidebar";
+import { ProfileSection } from "@/components/organisms/ProfileSection";
+import { KnowledgeSection } from "@/components/organisms/KnowledgeSection";
+import { EducationSection } from "@/components/organisms/EducationSection";
+import { PortfolioSection } from "@/components/organisms/PortfolioSection";
+import { Footer } from "@/components/organisms/Footer";
 
 export default function Home() {
   return (
@@ -8,14 +13,12 @@ export default function Home() {
         <LeftSidebar />
       </div>
 
-      <main className="min-w-0">
-        <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-slate-200/70">
-          <h2 className="text-2xl font-bold text-slate-900">Contenido central</h2>
-          <p className="mt-2 text-slate-600">
-            Las secciones de Perfil, Conocimientos, Educación y Portafolio se
-            agregarán en el siguiente commit.
-          </p>
-        </div>
+      <main className="flex min-w-0 flex-col gap-12 pb-6">
+        <ProfileSection />
+        <KnowledgeSection />
+        <EducationSection />
+        <PortfolioSection />
+        <Footer />
       </main>
 
       <div className="lg:sticky lg:top-6 lg:self-start">
