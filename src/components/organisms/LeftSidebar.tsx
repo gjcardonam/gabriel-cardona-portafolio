@@ -9,16 +9,37 @@ import { extraSkills } from "@/data/extraSkills";
 
 export function LeftSidebar() {
   return (
-    <aside className="flex flex-col gap-8 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200/70 lg:h-[calc(100vh-3rem)] lg:overflow-y-auto">
-      <header className="flex flex-col items-center text-center">
-        <Avatar src={profile.photo} alt={profile.name} size={120} />
-        <h1 className="mt-4 text-xl font-bold text-slate-900">{profile.name}</h1>
-        <p className="mt-1 text-xs font-medium uppercase tracking-wider text-teal-700">
+    <aside className="relative bg-paper-soft px-7 py-9 lg:h-screen lg:overflow-y-auto">
+      {/* Vertical rule on right edge */}
+      <span
+        aria-hidden
+        className="absolute right-0 top-9 bottom-9 w-px bg-ink/20"
+      />
+
+      <header className="flex flex-col items-start text-left">
+        <div className="flex w-full items-center justify-between">
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-ink-mute">
+            Portfolio · 2026
+          </span>
+          <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
+            v1
+          </span>
+        </div>
+        <Avatar
+          src={profile.photo}
+          alt={profile.name}
+          size={104}
+          className="mt-6"
+        />
+        <h1 className="mt-5 font-display text-3xl font-semibold leading-[1.05] text-ink">
+          {profile.name}
+        </h1>
+        <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute">
           {profile.title}
         </p>
       </header>
 
-      <SidebarBlock title="Contacto">
+      <SidebarBlock label="A" title="Contacto">
         <div className="space-y-3">
           {profile.contact.map((c) => (
             <ContactItem key={c.label} item={c} />
@@ -26,7 +47,7 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock title="Idiomas">
+      <SidebarBlock label="B" title="Idiomas">
         <div className="space-y-3">
           {languages.map((l) => (
             <SkillBar key={l.name} skill={l} />
@@ -34,7 +55,7 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock title="Lenguajes de programación">
+      <SidebarBlock label="C" title="Lenguajes">
         <div className="space-y-3">
           {programmingLanguages.map((l) => (
             <SkillBar key={l.name} skill={l} />
@@ -42,11 +63,11 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock title="Habilidades extra">
+      <SidebarBlock label="D" title="Habilidades extra">
         <div className="space-y-4">
           {extraSkills.map((cat) => (
             <div key={cat.category}>
-              <div className="mb-2 text-xs font-semibold text-slate-700">
+              <div className="mb-2 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute">
                 {cat.category}
               </div>
               <div className="flex flex-wrap gap-1.5">
@@ -63,17 +84,24 @@ export function LeftSidebar() {
 }
 
 function SidebarBlock({
+  label,
   title,
   children,
 }: {
+  label: string;
   title: string;
   children: React.ReactNode;
 }) {
   return (
-    <section>
-      <h2 className="mb-3 text-[11px] font-bold uppercase tracking-widest text-slate-500">
-        {title}
-      </h2>
+    <section className="mt-9 border-t border-ink/15 pt-6">
+      <header className="mb-5 flex items-baseline justify-between">
+        <h2 className="font-display text-base font-semibold text-ink">
+          {title}
+        </h2>
+        <span className="font-mono text-[10px] uppercase tracking-[0.3em] text-accent">
+          §{label}
+        </span>
+      </header>
       {children}
     </section>
   );
