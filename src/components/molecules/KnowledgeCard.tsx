@@ -2,11 +2,59 @@ import { Card } from "@/components/atoms/Card";
 import { Icon } from "@/components/atoms/Icon";
 import type { Knowledge } from "@/types";
 
+type Hue = "orange" | "blue" | "olive";
 type Pattern = "dots" | "grid" | "diag" | "arcs" | "plus" | "circles";
 
-const PATTERNS: Pattern[] = ["dots", "grid", "diag", "arcs", "plus", "circles"];
+const VARIANTS: { hue: Hue; pattern: Pattern }[] = [
+  { hue: "orange", pattern: "dots" },
+  { hue: "blue", pattern: "grid" },
+  { hue: "olive", pattern: "diag" },
+  { hue: "orange", pattern: "arcs" },
+  { hue: "blue", pattern: "plus" },
+  { hue: "olive", pattern: "circles" },
+];
 
-/** Decorative repeating background patterns for visual variety per card. */
+const HUE_TOKENS: Record<
+  Hue,
+  {
+    chipBg: string;
+    chipText: string;
+    chipRing: string;
+    chipHoverBg: string;
+    pattern: string;
+    ghost: string;
+    explore: string;
+  }
+> = {
+  orange: {
+    chipBg: "bg-accent-tint",
+    chipText: "text-accent-deep",
+    chipRing: "ring-accent/15",
+    chipHoverBg: "group-hover:bg-accent group-hover:text-canvas group-hover:ring-accent",
+    pattern: "text-accent",
+    ghost: "text-accent/[0.08] group-hover:text-accent/[0.15]",
+    explore: "text-accent",
+  },
+  blue: {
+    chipBg: "bg-secondary-tint",
+    chipText: "text-secondary-deep",
+    chipRing: "ring-secondary/15",
+    chipHoverBg: "group-hover:bg-secondary group-hover:text-canvas group-hover:ring-secondary",
+    pattern: "text-secondary",
+    ghost: "text-secondary/[0.10] group-hover:text-secondary/[0.18]",
+    explore: "text-secondary-deep",
+  },
+  olive: {
+    chipBg: "bg-tertiary-tint",
+    chipText: "text-tertiary-deep",
+    chipRing: "ring-tertiary/15",
+    chipHoverBg: "group-hover:bg-tertiary group-hover:text-canvas group-hover:ring-tertiary",
+    pattern: "text-tertiary",
+    ghost: "text-tertiary/[0.10] group-hover:text-tertiary/[0.18]",
+    explore: "text-tertiary-deep",
+  },
+};
+
 function patternStyle(pattern: Pattern): React.CSSProperties {
   switch (pattern) {
     case "dots":
@@ -53,7 +101,8 @@ type Props = {
 };
 
 export function KnowledgeCard({ item, index }: Props) {
-  const pattern = PATTERNS[index % PATTERNS.length];
+  const variant = VARIANTS[index % VARIANTS.length];
+  const tokens = HUE_TOKENS[variant.hue];
   const label = String(index + 1).padStart(2, "0");
 
   return (
@@ -62,31 +111,32 @@ export function KnowledgeCard({ item, index }: Props) {
       hoverable
       className="group relative flex h-full flex-col overflow-hidden p-7 sm:p-8"
     >
-      {/* Big ghost number, accent tinted */}
+      {/* Big ghost number, hue tinted */}
       <span
         aria-hidden
-        className="font-display pointer-events-none absolute -bottom-6 -right-2 select-none text-[11rem] leading-none tracking-tight text-accent/[0.07] transition-[color,transform] duration-500 ease-out group-hover:text-accent/15 group-hover:scale-105"
+        className={`font-display pointer-events-none absolute -bottom-6 -right-2 select-none text-[11rem] leading-none tracking-tight transition-[color,transform] duration-500 ease-out group-hover:scale-105 ${tokens.ghost}`}
       >
         {label}
       </span>
 
-      {/* Pattern decoration top-right, accent colored */}
+      {/* Pattern decoration top-right, hue colored */}
       <span
         aria-hidden
-        className="pointer-events-none absolute right-5 top-5 h-16 w-16 text-accent opacity-25 transition-opacity duration-300 ease-out group-hover:opacity-60"
+        className={`pointer-events-none absolute right-5 top-5 h-16 w-16 opacity-30 transition-opacity duration-300 ease-out group-hover:opacity-70 ${tokens.pattern}`}
         style={{
-          ...patternStyle(pattern),
+          ...patternStyle(variant.pattern),
           maskImage: "radial-gradient(circle, black, transparent)",
           WebkitMaskImage: "radial-gradient(circle, black, transparent)",
         }}
       />
 
-      {/* Icon chip */}
-      <span className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-tint text-accent-deep ring-1 ring-accent/15 transition-[transform,background-color,color,box-shadow] duration-200 ease-out group-hover:scale-110 group-hover:bg-accent group-hover:text-canvas group-hover:ring-accent">
+      {/* Icon chip in hue color */}
+      <span
+        className={`relative inline-flex h-12 w-12 items-center justify-center rounded-xl ring-1 transition-[transform,background-color,color,box-shadow] duration-200 ease-out group-hover:scale-110 ${tokens.chipBg} ${tokens.chipText} ${tokens.chipRing} ${tokens.chipHoverBg}`}
+      >
         <Icon name={item.icon as never} size={20} />
       </span>
 
-      {/* Mono index label */}
       <span className="relative mt-5 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-ink-mute">
         / {label} · Knowledge
       </span>
@@ -99,10 +149,9 @@ export function KnowledgeCard({ item, index }: Props) {
         {item.description}
       </p>
 
-      {/* Reveal arrow on hover */}
       <span
         aria-hidden
-        className="relative mt-auto inline-flex items-center gap-2 pt-6 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-accent opacity-0 transition-[opacity,transform] duration-300 ease-out -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
+        className={`relative mt-auto inline-flex items-center gap-2 pt-6 font-mono text-[10px] font-medium uppercase tracking-[0.18em] opacity-0 transition-[opacity,transform] duration-300 ease-out -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 ${tokens.explore}`}
       >
         Explorar
         <Icon name="arrowRight" size={12} />

@@ -14,8 +14,8 @@ export function PortfolioSection({ onSelectProject }: Props) {
       <SectionTitle
         number="04"
         eyebrow="Portafolio"
-        title="Trabajo seleccionado"
-        description="Una muestra de proyectos públicos en los que he trabajado, desde investigación universitaria hasta herramientas internas."
+        title="Cosas que he construido"
+        description="Algunos proyectos públicos en los que he trabajado, desde investigación universitaria hasta herramientas internas."
       />
       <HorizontalScroller step={400} className="-mx-2 sm:-mx-4">
         <div className="flex snap-x snap-mandatory gap-4 px-2 pb-2 sm:px-4">
