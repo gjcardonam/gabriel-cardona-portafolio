@@ -15,7 +15,7 @@ export function Footer() {
           className="pointer-events-none absolute -bottom-40 -right-40 h-[520px] w-[520px] rounded-full opacity-50 blur-3xl"
           style={{
             background:
-              "radial-gradient(circle, rgba(52, 211, 153, 0.55) 0%, rgba(5, 150, 105, 0.25) 40%, transparent 70%)",
+              "radial-gradient(circle, rgba(110, 231, 183, 0.55) 0%, rgba(4, 120, 87, 0.25) 40%, transparent 70%)",
           }}
         />
 
@@ -44,7 +44,7 @@ export function Footer() {
             </p>
             <a
               href="mailto:gjcardonam@gmail.com"
-              className="press group mt-8 inline-flex items-center gap-3 rounded-xl bg-canvas px-5 py-3 text-base font-semibold tracking-tight text-ink transition-[background-color,color,box-shadow] duration-200 ease-out hover:bg-accent hover:text-canvas hover:shadow-[0_12px_28px_-12px_rgba(5,150,105,0.6)]"
+              className="press group mt-8 inline-flex items-center gap-3 rounded-xl bg-canvas px-5 py-3 text-base font-semibold tracking-tight text-ink transition-[background-color,color,box-shadow] duration-200 ease-out hover:bg-accent hover:text-canvas hover:shadow-[0_12px_28px_-12px_rgba(4,120,87,0.6)]"
             >
               <Icon name="mail" size={18} />
               <span>gjcardonam@gmail.com</span>

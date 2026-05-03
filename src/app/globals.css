@@ -1,37 +1,29 @@
 @import "tailwindcss";
 
+/*
+ * Palette: Tailwind CSS Stone (warm neutrals) + Emerald (forest accent).
+ * Source: https://tailwindcss.com/docs/colors
+ * Stone is the warm-neutral scale used by Vercel, Linear and shadcn/ui;
+ * Emerald-700 is the established "professional forest green" accent.
+ */
 @theme inline {
-  /* Curated portfolio palette from ui-ux-pro-max colors.csv #11 (Portfolio/Personal) */
-  --color-canvas: #fafafa;
-  --color-canvas-soft: #f4f4f5;
-  --color-canvas-deep: #e8ecf0;
+  --color-canvas: #fafaf9;        /* stone-50 */
+  --color-canvas-soft: #f5f5f4;   /* stone-100 */
+  --color-canvas-deep: #e7e5e4;   /* stone-200 */
 
   --color-surface: #ffffff;
 
-  --color-ink: #454545;
-  --color-ink-soft: #6b6b6b;
-  --color-ink-mute: #909090;
-  --color-ink-faint: #b8b8b8;
+  --color-ink: #1c1917;           /* stone-900 */
+  --color-ink-soft: #44403c;      /* stone-700 */
+  --color-ink-mute: #78716c;      /* stone-500 */
+  --color-ink-faint: #a8a29e;     /* stone-400 */
 
-  --color-rule: #e4e4e7;
+  --color-rule: #e7e5e4;          /* stone-200 */
 
-  /* Forest accent (Tailwind green-800 / green-300 / green-900 / green-100) */
-  --color-accent: #166534;
-  --color-accent-soft: #86efac;
-  --color-accent-deep: #14532d;
-  --color-accent-tint: #dcfce7;
-
-  /* Nature companion palette (Tailwind earth tones, used as accents in Knowledge) */
-  --color-nature-moss: #65a30d;
-  --color-nature-moss-tint: #ecfccb;
-  --color-nature-ochre: #ca8a04;
-  --color-nature-ochre-tint: #fef9c3;
-  --color-nature-clay: #c2410c;
-  --color-nature-clay-tint: #ffedd5;
-  --color-nature-pine: #115e59;
-  --color-nature-pine-tint: #ccfbf1;
-  --color-nature-bark: #78350f;
-  --color-nature-bark-tint: #fef3c7;
+  --color-accent: #047857;        /* emerald-700 */
+  --color-accent-soft: #6ee7b7;   /* emerald-300 */
+  --color-accent-deep: #064e3b;   /* emerald-900 */
+  --color-accent-tint: #ecfdf5;   /* emerald-50 */
 
   /* Typography */
   --font-display: var(--font-display);
@@ -50,7 +42,7 @@ html {
 
 body {
   background-color: var(--color-canvas);
-  color: var(--color-ink);
+  color: var(--color-ink-soft);
   font-family: var(--font-body), system-ui, sans-serif;
   font-feature-settings: "ss01", "ss02";
 }
@@ -78,7 +70,7 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-rule);
+  background: var(--color-canvas-deep);
   border-radius: 999px;
   border: 2px solid var(--color-canvas);
 }
@@ -88,8 +80,6 @@ body {
 
 /* ================================
    Page-load animations (emil-style)
-   - Specific properties, never `all`
-   - Custom easing, never default ease-in
    ================================ */
 @keyframes rise {
   from { opacity: 0; transform: translateY(16px); }
@@ -100,7 +90,7 @@ body {
   to { opacity: 1; }
 }
 @keyframes scale-in {
-  /* "Nothing in the real world appears from nothing" — start at 0.95, not 0 */
+  /* Start at 0.95, not 0 — nothing in real world appears from nothing */
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
 }
@@ -124,7 +114,7 @@ body {
 .stagger-7 { animation-delay: 0.40s; }
 .stagger-8 { animation-delay: 0.46s; }
 
-/* Card hover lift — emil principles: specific transform property, custom easing */
+/* Card hover lift — specific transform, custom easing */
 .lift {
   transition: transform 200ms var(--ease-out-strong),
               box-shadow 200ms var(--ease-out-strong),
@@ -132,11 +122,12 @@ body {
 }
 .lift:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px -16px rgba(22, 101, 52, 0.25),
-              0 2px 6px -2px rgba(69, 69, 69, 0.06);
+  /* shadow tint uses emerald-700 for cohesion */
+  box-shadow: 0 12px 28px -16px rgba(4, 120, 87, 0.22),
+              0 2px 6px -2px rgba(28, 25, 23, 0.06);
 }
 
-/* Press feedback — 100-160ms per emil's table */
+/* Press feedback */
 .press {
   transition: transform 120ms var(--ease-out-strong);
 }
@@ -144,7 +135,7 @@ body {
   transform: scale(0.97);
 }
 
-/* Hide native scrollbar but keep scrollable */
+/* Hide native scrollbar */
 .no-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -155,8 +146,8 @@ body {
 
 /* Soft floating shadow */
 .shadow-card {
-  box-shadow: 0 1px 2px -1px rgba(69, 69, 69, 0.05),
-              0 4px 16px -8px rgba(69, 69, 69, 0.08);
+  box-shadow: 0 1px 2px -1px rgba(28, 25, 23, 0.05),
+              0 4px 16px -8px rgba(28, 25, 23, 0.08);
 }
 
 @media (prefers-reduced-motion: reduce) {

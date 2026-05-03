@@ -20,7 +20,7 @@ export function ProfileSection({ onOpenDialog }: Props) {
         className="pointer-events-none absolute -left-32 -top-32 h-[520px] w-[520px] rounded-full opacity-50 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle, rgba(134, 239, 172, 0.45) 0%, rgba(220, 252, 231, 0.25) 35%, transparent 70%)",
+            "radial-gradient(circle, rgba(110, 231, 183, 0.45) 0%, rgba(236, 253, 245, 0.25) 35%, transparent 70%)",
         }}
       />
       <div
@@ -28,7 +28,7 @@ export function ProfileSection({ onOpenDialog }: Props) {
         className="pointer-events-none absolute -right-24 top-32 h-[420px] w-[420px] rounded-full opacity-40 blur-3xl"
         style={{
           background:
-            "radial-gradient(circle, rgba(22, 101, 52, 0.18) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(4, 120, 87, 0.18) 0%, transparent 70%)",
         }}
       />
 

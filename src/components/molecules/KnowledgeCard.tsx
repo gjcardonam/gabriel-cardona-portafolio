@@ -2,72 +2,11 @@ import { Card } from "@/components/atoms/Card";
 import { Icon } from "@/components/atoms/Icon";
 import type { Knowledge } from "@/types";
 
-type Hue = "forest" | "moss" | "ochre" | "clay" | "pine" | "bark";
 type Pattern = "dots" | "grid" | "diag" | "arcs" | "plus" | "circles";
 
-type Variant = {
-  hue: Hue;
-  pattern: Pattern;
-};
+const PATTERNS: Pattern[] = ["dots", "grid", "diag", "arcs", "plus", "circles"];
 
-const VARIANTS: Variant[] = [
-  { hue: "forest", pattern: "dots" },
-  { hue: "ochre", pattern: "grid" },
-  { hue: "pine", pattern: "diag" },
-  { hue: "clay", pattern: "arcs" },
-  { hue: "moss", pattern: "plus" },
-  { hue: "bark", pattern: "circles" },
-];
-
-const HUE_TOKENS: Record<
-  Hue,
-  { text: string; bgChip: string; textChip: string; ring: string; ghost: string }
-> = {
-  forest: {
-    text: "text-accent-deep",
-    bgChip: "bg-accent-tint",
-    textChip: "text-accent-deep",
-    ring: "ring-accent/25",
-    ghost: "text-accent/15",
-  },
-  moss: {
-    text: "text-[var(--color-nature-moss)]",
-    bgChip: "bg-[var(--color-nature-moss-tint)]",
-    textChip: "text-[var(--color-nature-moss)]",
-    ring: "ring-[var(--color-nature-moss)]/25",
-    ghost: "text-[var(--color-nature-moss)]/15",
-  },
-  ochre: {
-    text: "text-[var(--color-nature-ochre)]",
-    bgChip: "bg-[var(--color-nature-ochre-tint)]",
-    textChip: "text-[var(--color-nature-ochre)]",
-    ring: "ring-[var(--color-nature-ochre)]/25",
-    ghost: "text-[var(--color-nature-ochre)]/15",
-  },
-  clay: {
-    text: "text-[var(--color-nature-clay)]",
-    bgChip: "bg-[var(--color-nature-clay-tint)]",
-    textChip: "text-[var(--color-nature-clay)]",
-    ring: "ring-[var(--color-nature-clay)]/25",
-    ghost: "text-[var(--color-nature-clay)]/15",
-  },
-  pine: {
-    text: "text-[var(--color-nature-pine)]",
-    bgChip: "bg-[var(--color-nature-pine-tint)]",
-    textChip: "text-[var(--color-nature-pine)]",
-    ring: "ring-[var(--color-nature-pine)]/25",
-    ghost: "text-[var(--color-nature-pine)]/15",
-  },
-  bark: {
-    text: "text-[var(--color-nature-bark)]",
-    bgChip: "bg-[var(--color-nature-bark-tint)]",
-    textChip: "text-[var(--color-nature-bark)]",
-    ring: "ring-[var(--color-nature-bark)]/25",
-    ghost: "text-[var(--color-nature-bark)]/15",
-  },
-};
-
-/** SVG-as-CSS decorative patterns. Color is currentColor so it inherits from text-* class. */
+/** Decorative repeating background patterns for visual variety per card. */
 function patternStyle(pattern: Pattern): React.CSSProperties {
   switch (pattern) {
     case "dots":
@@ -98,10 +37,6 @@ function patternStyle(pattern: Pattern): React.CSSProperties {
           "linear-gradient(currentColor 1px, transparent 1px), linear-gradient(90deg, currentColor 1px, transparent 1px)",
         backgroundSize: "16px 16px",
         backgroundPosition: "center",
-        maskImage:
-          "radial-gradient(circle, black 1.6px, transparent 1.6px), radial-gradient(circle, black 1.6px, transparent 1.6px)",
-        WebkitMaskImage:
-          "radial-gradient(circle, black 1.6px, transparent 1.6px)",
       };
     case "circles":
       return {
@@ -118,8 +53,7 @@ type Props = {
 };
 
 export function KnowledgeCard({ item, index }: Props) {
-  const variant = VARIANTS[index % VARIANTS.length];
-  const tokens = HUE_TOKENS[variant.hue];
+  const pattern = PATTERNS[index % PATTERNS.length];
   const label = String(index + 1).padStart(2, "0");
 
   return (
@@ -128,29 +62,27 @@ export function KnowledgeCard({ item, index }: Props) {
       hoverable
       className="group relative flex h-full flex-col overflow-hidden p-7 sm:p-8"
     >
-      {/* Big ghost number, hue tinted */}
+      {/* Big ghost number, accent tinted */}
       <span
         aria-hidden
-        className={`font-display pointer-events-none absolute -bottom-6 -right-2 select-none text-[11rem] leading-none tracking-tight transition-[color,transform] duration-500 ease-out group-hover:scale-105 ${tokens.ghost}`}
+        className="font-display pointer-events-none absolute -bottom-6 -right-2 select-none text-[11rem] leading-none tracking-tight text-accent/[0.07] transition-[color,transform] duration-500 ease-out group-hover:text-accent/15 group-hover:scale-105"
       >
         {label}
       </span>
 
-      {/* Pattern decoration top-right, color follows hue */}
+      {/* Pattern decoration top-right, accent colored */}
       <span
         aria-hidden
-        className={`pointer-events-none absolute right-5 top-5 h-16 w-16 opacity-50 transition-opacity duration-300 ease-out group-hover:opacity-90 ${tokens.text}`}
+        className="pointer-events-none absolute right-5 top-5 h-16 w-16 text-accent opacity-25 transition-opacity duration-300 ease-out group-hover:opacity-60"
         style={{
-          ...patternStyle(variant.pattern),
+          ...patternStyle(pattern),
           maskImage: "radial-gradient(circle, black, transparent)",
           WebkitMaskImage: "radial-gradient(circle, black, transparent)",
         }}
       />
 
-      {/* Icon chip in hue color */}
-      <span
-        className={`relative inline-flex h-12 w-12 items-center justify-center rounded-xl ring-1 transition-[transform,box-shadow] duration-200 ease-out group-hover:scale-110 ${tokens.bgChip} ${tokens.textChip} ${tokens.ring}`}
-      >
+      {/* Icon chip */}
+      <span className="relative inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent-tint text-accent-deep ring-1 ring-accent/15 transition-[transform,background-color,color,box-shadow] duration-200 ease-out group-hover:scale-110 group-hover:bg-accent group-hover:text-canvas group-hover:ring-accent">
         <Icon name={item.icon as never} size={20} />
       </span>
 
@@ -167,10 +99,10 @@ export function KnowledgeCard({ item, index }: Props) {
         {item.description}
       </p>
 
-      {/* Reveal arrow on hover, hue colored */}
+      {/* Reveal arrow on hover */}
       <span
         aria-hidden
-        className={`relative mt-auto inline-flex items-center gap-2 pt-6 font-mono text-[10px] font-medium uppercase tracking-[0.18em] opacity-0 transition-[opacity,transform] duration-300 ease-out -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 ${tokens.text}`}
+        className="relative mt-auto inline-flex items-center gap-2 pt-6 font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-accent opacity-0 transition-[opacity,transform] duration-300 ease-out -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
       >
         Explorar
         <Icon name="arrowRight" size={12} />

@@ -49,7 +49,7 @@ export function LeftSidebar() {
         </p>
       </header>
 
-      <SidebarBlock label="A" title="Contacto" hue="moss">
+      <SidebarBlock label="A" title="Contacto">
         <div className="space-y-3">
           {profile.contact.map((c) => (
             <ContactItem key={c.label} item={c} />
@@ -57,7 +57,7 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock label="B" title="Idiomas" hue="ochre">
+      <SidebarBlock label="B" title="Idiomas">
         <div className="space-y-4">
           {languages.map((l) => (
             <SkillBar key={l.name} skill={l} />
@@ -65,7 +65,7 @@ export function LeftSidebar() {
         </div>
       </SidebarBlock>
 
-      <SidebarBlock label="C" title="Lenguajes" hue="pine">
+      <SidebarBlock label="C" title="Lenguajes">
         <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
           {programmingLanguages.map((l) => (
             <li key={l.name} className="flex flex-col gap-1.5">
@@ -83,7 +83,7 @@ export function LeftSidebar() {
         </ul>
       </SidebarBlock>
 
-      <SidebarBlock label="D" title="Habilidades extra" hue="clay">
+      <SidebarBlock label="D" title="Habilidades extra">
         <div className="space-y-4">
           {extraSkills.map((cat) => (
             <div key={cat.category}>
@@ -115,24 +115,13 @@ export function LeftSidebar() {
   );
 }
 
-type Hue = "moss" | "ochre" | "pine" | "clay";
-
-const HUE_BG: Record<Hue, string> = {
-  moss: "bg-[var(--color-nature-moss)]",
-  ochre: "bg-[var(--color-nature-ochre)]",
-  pine: "bg-[var(--color-nature-pine)]",
-  clay: "bg-[var(--color-nature-clay)]",
-};
-
 function SidebarBlock({
   label,
   title,
-  hue,
   children,
 }: {
   label: string;
   title: string;
-  hue: Hue;
   children: React.ReactNode;
 }) {
   return (
@@ -141,7 +130,7 @@ function SidebarBlock({
         <span className="inline-flex items-center gap-2.5 font-mono text-[10px] font-medium uppercase tracking-[0.18em]">
           <span
             aria-hidden
-            className={`inline-block h-2.5 w-2.5 rounded-sm ${HUE_BG[hue]}`}
+            className="inline-block h-1.5 w-1.5 rounded-full bg-accent"
           />
           <span className="text-ink">{title}</span>
         </span>
