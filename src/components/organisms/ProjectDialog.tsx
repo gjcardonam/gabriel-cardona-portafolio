@@ -20,8 +20,8 @@ export function ProjectDialog({ project, onClose }: Props) {
       maxWidth="lg"
     >
       {project && (
-        <div className="space-y-6">
-          <div className="relative aspect-[16/8] w-full overflow-hidden rounded-xl bg-slate-100">
+        <div className="space-y-7">
+          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-canvas-soft ring-1 ring-rule">
             <Image
               src={project.image}
               alt={project.title}
@@ -32,38 +32,40 @@ export function ProjectDialog({ project, onClose }: Props) {
           </div>
 
           <section>
-            <h3 className="mb-2 text-xs font-bold uppercase tracking-widest text-slate-500">
-              Descripción
+            <h3 className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+              / Descripción
             </h3>
-            <p className="text-base leading-relaxed text-slate-700">
+            <p className="mt-3 text-base leading-relaxed text-ink-soft">
               {project.longDescription}
             </p>
           </section>
 
           <section>
-            <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">
-              Stack tecnológico
+            <h3 className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+              / Stack tecnológico
             </h3>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="mt-3 flex flex-wrap gap-1.5">
               {project.tech.map((t) => (
-                <Badge key={t}>{t}</Badge>
+                <Badge key={t} variant="default">
+                  {t}
+                </Badge>
               ))}
             </div>
           </section>
 
           {project.links.length > 0 && (
             <section>
-              <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">
-                Enlaces
+              <h3 className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+                / Enlaces
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="mt-3 flex flex-wrap gap-2">
                 {project.links.map((l) => (
                   <a
                     key={l.label}
                     href={l.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-teal-600 hover:text-teal-700"
+                    className="press inline-flex items-center gap-2 rounded-xl bg-canvas-soft px-4 py-2 text-sm font-medium text-ink ring-1 ring-rule transition-[color,background-color,box-shadow] duration-150 ease-out hover:bg-ink hover:text-canvas hover:ring-ink"
                   >
                     <Icon name="external" size={14} />
                     {l.label}

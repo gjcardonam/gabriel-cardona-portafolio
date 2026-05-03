@@ -21,22 +21,24 @@ const HIGHLIGHTS = [
 export function ProfileDialog({ open, onClose }: Props) {
   return (
     <Dialog open={open} onClose={onClose} title="Sobre mí" maxWidth="lg">
-      <div className="space-y-6">
-        <p className="text-base leading-relaxed text-slate-700">
+      <div className="space-y-8">
+        <p className="text-base leading-relaxed text-ink-soft sm:text-lg">
           {profile.about}
         </p>
 
         <section>
-          <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">
-            Lo que aporto
+          <h3 className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+            / Lo que aporto
           </h3>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {HIGHLIGHTS.map((h) => (
+          <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {HIGHLIGHTS.map((h, i) => (
               <div
                 key={h}
-                className="flex items-center gap-2 rounded-lg bg-slate-50 px-3 py-2 text-sm text-slate-700"
+                className="flex items-center gap-3 rounded-xl border border-rule bg-canvas-soft px-4 py-3 text-sm text-ink"
               >
-                <span className="inline-block h-1.5 w-1.5 flex-none rounded-full bg-teal-500" />
+                <span className="font-mono text-[10px] font-medium tracking-tight text-accent">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 {h}
               </div>
             ))}
@@ -44,17 +46,19 @@ export function ProfileDialog({ open, onClose }: Props) {
         </section>
 
         <section>
-          <h3 className="mb-3 text-xs font-bold uppercase tracking-widest text-slate-500">
-            Contacto rápido
+          <h3 className="font-mono text-[10px] font-medium uppercase tracking-[0.18em] text-accent">
+            / Contacto rápido
           </h3>
-          <div className="flex flex-wrap gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
             {profile.contact.map((c) =>
               c.href ? (
                 <a key={c.label} href={c.href}>
-                  <Badge>{c.value}</Badge>
+                  <Badge variant="accent">{c.value}</Badge>
                 </a>
               ) : (
-                <Badge key={c.label}>{c.value}</Badge>
+                <Badge key={c.label} variant="default">
+                  {c.value}
+                </Badge>
               ),
             )}
           </div>
